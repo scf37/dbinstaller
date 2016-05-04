@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir -p ~/.cache/dbinstaller
+
+VERSION=latest
+ARCHIVE_FILE=~/.cache/dbinstaller/dbinstaller-$VERSION.tar.bz2
+
+if [ ! -e "$ARCHIVE_FILE" ]; then
+    curl -L https://dl.bintray.com/scf37/generic/dbinstaller-$VERSION.tar.bz2 -o $ARCHIVE_FILE
+    tar -xf $ARCHIVE_FILE -C ~/.cache/dbinstaller
+fi
+
+exec ~/.cache/dbinstaller/bin/app $*
