@@ -27,8 +27,10 @@ script:
   - chmod 600 github_key
   - ssh-add github_key
   - git remote add deploy git@github.com:scf37/dbinstaller.git
+  - git branch -f master HEAD
+  - git checkout master
   - git status
-  - git push deploy --set-upstream master
+  - git push deploy master
 
 after_success: 
   - sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls
