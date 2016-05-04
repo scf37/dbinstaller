@@ -104,8 +104,8 @@ object Dist {
     log.info(s"git add $versionFile")
     s"git add $versionFile"!!
 
-    log.info(s"git commit -m ${q}Releasing version ${version.value}$q")
-    Seq("git", "commit", "-m", s"${q}Releasing version ${version.value}$q")!!
+    log.info(s"git commit -m ${q}[ci skip]Releasing version ${version.value}$q")
+    Seq("git", "commit", "-m", s"${q}[ci skip]Releasing version ${version.value}$q")!!
 
     versionFile
   }
