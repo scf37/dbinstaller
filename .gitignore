@@ -1,0 +1,14 @@
+target
+build
+.gradle
+*.class
+.project
+.classpath
+.settings
+.cache
+.cache-main
+.cache-tests
+rebel.xml
+/bin
+/logs
+.idea
