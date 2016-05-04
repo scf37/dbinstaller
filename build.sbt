@@ -33,7 +33,7 @@ lazy val root = (project in file("."))
   testDeps,
   scalacOptions ++= compilerOptions,
   resolvers += "Scf37" at "https://dl.bintray.com/scf37/maven/"
-)
+).settings(Dist.settings)
 
 name := "dbinstaller"
 organization := "me.scf37"

@@ -15,5 +15,12 @@ scala:
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION coverage test
+  - sbt dist
 
-after_success: sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls
+after_success: 
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - cat .secret-enc/github_key | openssl aes-256-cbc -a -d -k  "$PASSWORD" > github_key
+  - chmod 600 github_key
+  - ssh-add github_key
+  - git push 
+  - sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls
