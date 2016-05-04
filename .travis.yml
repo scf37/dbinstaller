@@ -25,5 +25,6 @@ after_success:
   - cat .secret-enc/github_key | openssl aes-256-cbc -a -d -k  "$PASSWORD" > github_key
   - chmod 600 github_key
   - ssh-add github_key
-  - git push 
+  - git remote add deploy git@github.com:scf37/dbinstaller.git
+  - git push deploy master
   - sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls
