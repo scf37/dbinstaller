@@ -21,8 +21,6 @@ script:
   - git config --local user.name "Travis"
   - sbt ++$TRAVIS_SCALA_VERSION coverage test
   - sbt dist
-  - git status
-  - git log
   - tar cfj dist.tar.bz2 target/dist
   - eval "$(ssh-agent -s)" #start the ssh agent
   - cat .secret-enc/github_key | openssl aes-256-cbc -a -d -k  "$PASSWORD" > github_key
@@ -30,7 +28,7 @@ script:
   - ssh-add github_key
   - git remote add deploy git@github.com:scf37/dbinstaller.git
   - git status
-  - git push deploy master
+  - git push deploy --set-upstream master
 
 after_success: 
   - sbt ++$TRAVIS_SCALA_VERSION coverageReport coveralls
