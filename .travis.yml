@@ -18,6 +18,7 @@ script:
   - sbt dist
 
 after_success: 
+  - tar cfj dist.tar.bz2 target/dist
   - eval "$(ssh-agent -s)" #start the ssh agent
   - cat .secret-enc/github_key | openssl aes-256-cbc -a -d -k  "$PASSWORD" > github_key
   - chmod 600 github_key
