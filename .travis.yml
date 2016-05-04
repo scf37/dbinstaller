@@ -22,7 +22,7 @@ script:
   - sbt ++$TRAVIS_SCALA_VERSION coverage test
   - sbt dist
   - tar -C target/dist -cvjf dist.tar.bz2 .
-  - curl -T dist.tar.bz2 -uscf37:$(cat .secret-enc/bintray_key | openssl aes-256-cbc -a -d -k "$PASSWORD") https://api.bintray.com/content/scf37/generic/dbinstaller/latest/dbinstaller-latest.tar.bz2
+  - curl -T dist.tar.bz2 -uscf37:$(cat .secret-enc/bintray_key | openssl aes-256-cbc -a -d -k "$PASSWORD") https://api.bintray.com/content/scf37/generic/dbinstaller/latest/dbinstaller-latest.tar.bz2?publish=1&override=1
   - eval "$(ssh-agent -s)" #start the ssh agent
   - cat .secret-enc/github_key | openssl aes-256-cbc -a -d -k "$PASSWORD" > github_key
   - chmod 600 github_key
