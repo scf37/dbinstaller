@@ -75,7 +75,7 @@ object Dist {
     IO.copyDirectory(baseDirectory.value / "web", copyOutpath / "web")
 
     val startupScript = IO.read(baseDirectory.value / "project/app")
-      .replaceAll("@MainClass@", "me.scf37.dbinstaller.DbInstaller")
+      .replaceAll("@MainClass@", "me.scf37.dbinstaller.Main")
       .replaceAll("@ExtraJvmArguments@", "-Xmx512m -XX:+UseG1GC  -Djava.net.preferIPv4Stack=true")
 
     IO.write(copyOutpath / "bin/app", startupScript)
