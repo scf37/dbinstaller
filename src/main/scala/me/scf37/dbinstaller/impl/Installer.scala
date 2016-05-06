@@ -51,8 +51,6 @@ class Installer(conf: DbInstallerConfig, driver: Driver) {
         driver.exec(f.toFile)
         driver.addEntry(nextEntry)
         println("+ " + script)
-      } else {
-        println("- " + script)
       }
     }
   }
@@ -92,8 +90,6 @@ class Installer(conf: DbInstallerConfig, driver: Driver) {
           println("+ " + script)
         }
 
-      } else {
-        println("- " + script)
       }
     }
   }

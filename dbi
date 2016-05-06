@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=9
+VERSION=10
 CACHE_ROOT=~/.cache/dbinstaller/$VERSION
 
 mkdir -p $CACHE_ROOT

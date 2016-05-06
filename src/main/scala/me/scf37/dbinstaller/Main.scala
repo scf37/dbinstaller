@@ -4,6 +4,7 @@ import me.scf37.dbinstaller.api.Driver
 import me.scf37.dbinstaller.api.InstallerException
 import me.scf37.dbinstaller.config.DbInstallerConfig
 import me.scf37.dbinstaller.driver.MemoryDriver
+import me.scf37.dbinstaller.driver.MongoDriver
 import me.scf37.dbinstaller.impl.Installer
 
 import scala.util.Failure
@@ -15,7 +16,7 @@ import scala.util.Try
   */
 object Main {
 
-  val drivers = Seq(new MemoryDriver)
+  val drivers = Seq(new MemoryDriver, new MongoDriver)
 
   def main(argv: Array[String]): Unit = {
     val conf = parseArgv(argv) match {
