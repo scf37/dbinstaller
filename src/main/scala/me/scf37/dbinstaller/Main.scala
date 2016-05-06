@@ -36,9 +36,10 @@ object Main {
 
     try {
       new Installer(conf, driver(conf.url)).run()
+      println("Installation complete")
     } catch {
       case e: InstallerException =>
-        println(e)
+        println(e.getMessage)
     }
 
   }

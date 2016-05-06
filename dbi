@@ -1,6 +1,8 @@
 #!/bin/bash
 
-VERSION=8
+set -e
+
+VERSION=9
 CACHE_ROOT=~/.cache/dbinstaller/$VERSION
 
 mkdir -p $CACHE_ROOT

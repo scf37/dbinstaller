@@ -123,7 +123,7 @@ class Installer(conf: DbInstallerConfig, driver: Driver) {
     new String(Files.readAllBytes(p), "UTF-8")
   } catch {
     case e: Exception =>
-      throw new InstallerException(s"Unable to read script file ${p.toString}: " + e.getMessage)
+      throw new InstallerException(s"Unable to read script file ${p.toString}: " + e.toString)
   }
 
   private[this] def lines(p: Path): Seq[String] = try {
@@ -131,7 +131,7 @@ class Installer(conf: DbInstallerConfig, driver: Driver) {
     Files.readAllLines(p).asScala
   } catch {
     case e: IOException =>
-      throw new InstallerException(s"Unable to read lst file ${p.toString}: " + e.getMessage)
+      throw new InstallerException(s"Unable to read lst file ${p.toString}: " + e.toString)
   }
 
 }
