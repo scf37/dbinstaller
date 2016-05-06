@@ -12,8 +12,6 @@ import me.scf37.dbinstaller.api.InstallerException
 import me.scf37.dbinstaller.api.ScriptEntry
 import me.scf37.dbinstaller.config.DbInstallerConfig
 
-import scala.util.control.NoStackTrace
-
 class Installer(conf: DbInstallerConfig, driver: Driver) {
 
   def run(): Unit = {

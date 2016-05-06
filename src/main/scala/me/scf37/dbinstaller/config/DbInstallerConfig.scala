@@ -19,5 +19,6 @@ class DbInstallerConfig(args: Map[String, String]) {
   val login: String = flags("login", "login name to use to connect to the database", Some(""))(identity)
   val password: String = flags("password", "password to use to connect to the database", Some(""))(identity)
 
-  val workDir = Paths.get(".").toAbsolutePath.normalize()
+  val workDir = Option(System.getenv("WORKDIR")).map(Paths.get(_))
+    .getOrElse(Paths.get(".")).toAbsolutePath.normalize()
 }

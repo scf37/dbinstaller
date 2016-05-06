@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=7
+VERSION=8
 CACHE_ROOT=~/.cache/dbinstaller/$VERSION
 
 mkdir -p $CACHE_ROOT
@@ -13,5 +13,7 @@ if [ ! -e "$RUN_FILE" ]; then
     curl -L https://dl.bintray.com/scf37/generic/dbinstaller-$VERSION.tar.bz2 -o $ARCHIVE_FILE
     tar -xf $ARCHIVE_FILE -C $CACHE_ROOT
 fi
+
+export WORKDIR=$(pwd)
 
 exec $RUN_FILE $*
