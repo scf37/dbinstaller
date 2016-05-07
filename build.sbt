@@ -19,12 +19,7 @@ lazy val root = (project in file("."))
   .settings(
     resolvers += "Scf37" at "https://dl.bintray.com/scf37/maven/",
   libraryDependencies ++= Seq(
-    "org.slf4j" % "slf4j-api" % "1.7.12",
     "org.scala-lang" % "scala-reflect" % "2.11.8",
-    "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.5",
-    "org.apache.logging.log4j" % "log4j-api" % "2.5",
-    "org.apache.logging.log4j" % "log4j-core" % "2.5",
-    "org.mongodb" % "mongodb-driver-async" % "3.2.2",
     "org.mongodb" % "mongodb-driver" % "3.2.2",
     "me.scf37.config2" % "config2_2.11" % "1"
   ),
